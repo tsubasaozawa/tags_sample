@@ -1,0 +1,21 @@
+= form_with(model: post, local: true) do |form|
+  - if post.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(post.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - post.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label "タグ  ※以下、自由にタグを入力してください", class: "form__left-inputbox__tag__label"
+    %ul#article-tags
+    = hidden_field_tag :category_hidden, @category_list
+  .field
+    = form.label :content
+    = form.text_area :content
+  .actions
+    = form.submit

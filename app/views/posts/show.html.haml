@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @post.title
+%p
+  %strong tag:
+  .tags
+    - @post.categories.each do |category|
+      .tags__tag
+        = category.tag_name
+%p
+  %strong Content:
+  = @post.content
+= link_to 'Edit', edit_post_path(@post)
+|
+= link_to 'Back', posts_path
