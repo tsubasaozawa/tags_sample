@@ -11,9 +11,9 @@
     = form.label :title
     = form.text_field :title
   .field
-    = form.label "タグ  ※以下、自由にタグを入力してください", class: "form__left-inputbox__tag__label"
-    %ul#article-tags
-    = hidden_field_tag :category_hidden, @category_list
+    = form.label "タグ  ※以下、自由にタグを入力してください"
+    %ul#post-tags
+    = hidden_field_tag :category_hidden, @category_list # editアクションでのタグの編集用に設定
   .field
     = form.label :content
     = form.text_area :content

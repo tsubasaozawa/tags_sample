@@ -4,12 +4,18 @@
   %thead
     %tr
       %th Title
+      %th tag
       %th Content
       %th{:colspan => "3"}
   %tbody
     - @posts.each do |post|
       %tr
         %td= post.title
+        %td
+          .tags
+            - post.categories.each do |category|
+              .tags__tag
+                = category.tag_name
         %td= post.content
         %td= link_to 'Show', post
         %td= link_to 'Edit', edit_post_path(post)

@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
 
+  # 以下、タグの更新処理
   def save_categories(tags)
     current_tags = self.categories.pluck(:tag_name) unless self.categories.nil?
     old_tags = current_tags - tags
